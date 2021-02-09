@@ -1,0 +1,78 @@
+.wish-card {
+    font-family: monospace;
+    font-size: 11pt;
+    /* width: 150px; */
+    width: 350px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: none;
+    color: #fed33f;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.wish-card__task {
+    margin: 0;
+    padding: 20px;
+    text-decoration: double;
+}
+
+.wish-card__side {
+    background-color: #1e181e;
+    border: 1px solid #fed33f;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wish-card__back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wish-card__button {
+    color: #2be4ea;
+    border: 2px solid #2be4ea;
+    background-color: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: 0.045em;
+    padding: 0.45rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.wish-card__button:hover {
+    background-color: rgb(41, 84, 89, 50%);
+}
+
+.wish-card__button:focus {
+    outline: none;
+}
+  
+.wish-card-inner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    padding: 0.75rem;
+}
+  
+.wish-card.flipped .wish-card-inner {
+transform: rotateY(180deg);
+}

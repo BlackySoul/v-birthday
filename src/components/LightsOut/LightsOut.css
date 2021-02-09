@@ -1,0 +1,134 @@
+.board {
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.board-cell {
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+    border: 1px solid #2be4ea;
+}
+
+.board-cell-light {
+    font-size: 1.5em;
+    color: #2be4ea;
+    text-shadow: 0px 0px 12px #2be4ea;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .board-cell-light:hover {
+    cursor: pointer;
+  }
+
+  .board-cell-light.off {
+    color: #2e4a4b;
+    text-shadow: 1px 2px 15px #2be4ea;
+  }
+
+.modal {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    /* background-color: gold; */
+}
+
+.modal:focus {
+    outline: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 55%);
+}
+
+.form-group {
+    height: 100%;
+}
+
+.form-label {
+  background-color: #9c3230;
+  color: #f4908b;
+  font-size: 0.92rem;
+  display: inline-block;
+  padding: 0.125em 0.75em;
+  padding-right: 2em;
+  letter-spacing: 0.065em;
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: bottom; /* inline-block fix */
+  clip-path: polygon(
+    0.25em 0,
+    calc(100% - 1em) 0,
+    100% 100%,
+    0.33em 100%,
+    0 100%,
+    0 0.25em
+  );
+}
+
+.form-control {
+    height: 100%;
+  background-color: #1e181e;
+  border: 1px solid #9c3230;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 1rem + 2px),
+    calc(100% - 1rem + 2px) 100%,
+    0 100%
+  );
+  padding-right: 0.5rem;
+}
+
+.form-control::before {
+  background-color: #9c3230;
+  bottom: -17px;
+  content: "";
+  display: block;
+  height: 3px; /* bigger to compensate transform */
+  position: absolute;
+  right: -6px;
+  top: auto;
+  transform: rotate(-45deg);
+  width: 22.627416px;
+  z-index: 100;
+}
+
+.form-control input,
+.form-control textarea {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #e8615a;
+  font-size: 1rem;
+  letter-spacing: 0.045em;
+  outline: none;
+  padding: 0.5rem;
+  resize: none;
+  width: 100%;
+}
+
+.form-control textarea:focus {
+    outline: none;
+}
