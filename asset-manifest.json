@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/v-birthday/static/css/main.1d64fdce.chunk.css",
+    "main.js": "/v-birthday/static/js/main.310d630f.chunk.js",
+    "main.js.map": "/v-birthday/static/js/main.310d630f.chunk.js.map",
+    "runtime-main.js": "/v-birthday/static/js/runtime-main.df7cad55.js",
+    "runtime-main.js.map": "/v-birthday/static/js/runtime-main.df7cad55.js.map",
+    "static/js/2.738e6926.chunk.js": "/v-birthday/static/js/2.738e6926.chunk.js",
+    "static/js/2.738e6926.chunk.js.map": "/v-birthday/static/js/2.738e6926.chunk.js.map",
+    "static/js/3.d0035c90.chunk.js": "/v-birthday/static/js/3.d0035c90.chunk.js",
+    "static/js/3.d0035c90.chunk.js.map": "/v-birthday/static/js/3.d0035c90.chunk.js.map",
+    "index.html": "/v-birthday/index.html",
+    "static/css/main.1d64fdce.chunk.css.map": "/v-birthday/static/css/main.1d64fdce.chunk.css.map",
+    "static/js/2.738e6926.chunk.js.LICENSE.txt": "/v-birthday/static/js/2.738e6926.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/v-birthday/static/media/warzone.8679affa.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df7cad55.js",
+    "static/js/2.738e6926.chunk.js",
+    "static/css/main.1d64fdce.chunk.css",
+    "static/js/main.310d630f.chunk.js"
+  ]
+}
