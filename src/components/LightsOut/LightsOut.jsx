@@ -58,7 +58,7 @@ const LightsOut = () => {
     }, [])
 
     const handleClick = (cellIndex, rowIndex) => {
-        console.log(cellIndex, rowIndex);
+        // console.log(cellIndex, rowIndex);
         const newBoard = [...board];
         toggleCellState(newBoard, cellIndex, rowIndex);
         if(newBoard.every(it => it.every(c => !c))) {
