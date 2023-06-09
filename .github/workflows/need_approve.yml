@@ -1,0 +1,45 @@
+name: "Need approval v-birthday"
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: "version type:"
+        required: true
+        type: choice
+        default: "minor"
+        options:
+          - patch
+          - minor
+          - major
+
+run-name: Publish ${{ inputs.type }}
+
+jobs:
+  publish:
+    concurrency: ci-gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "yarn"
+          always-auth: true
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
+
+      - name: Set Git credentials
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Bump by version type
+        run: echo ${{ github.event.inputs.type }}
