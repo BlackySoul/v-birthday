@@ -1,4 +1,4 @@
-name: "Publish v-birthday"
+name: "Start point"
 
 on: workflow_dispatch
 
