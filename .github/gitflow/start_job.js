@@ -12,7 +12,7 @@ async function run() {
     {
       owner,
       repo,
-      workflow_id: "WORKFLOW_ID",
+      workflow_id: 59748255,
       ref: "main",
       inputs: {
         type: "patch",
