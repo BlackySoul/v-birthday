@@ -11,6 +11,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
       - run: node ./.github/gitflow/start_job.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
