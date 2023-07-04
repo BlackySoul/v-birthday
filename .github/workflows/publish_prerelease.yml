@@ -57,11 +57,11 @@ jobs:
 
       - name: Bump by version type
         if: ${{ !github.event.inputs.custom_version }}
-        run: yarn workspace @vkontakte/vkui version --${{ github.event.inputs.type }} --preid ${{ github.event.inputs.tag }} --no-commit-hooks
+        run: yarn version --${{ github.event.inputs.type }} --preid ${{ github.event.inputs.tag }} --no-commit-hooks
 
       - name: Bump by custom version
         if: ${{ github.event.inputs.custom_version }}
-        run: yarn workspace @vkontakte/vkui version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
+        run: yarn version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
 
       - name: Pushing changes
         uses: ad-m/github-push-action@master
