@@ -1,22 +1,31 @@
-name: "Publish v-birthday"
+name: "Publish prerelease v-birthday"
 
 on:
   workflow_dispatch:
     inputs:
       type:
-        description: "version type:"
+        description: "version type (prerelease for bumping pre-release version):"
         required: true
         type: choice
-        default: "minor"
+        default: "prerelease"
         options:
-          - patch
-          - minor
-          - major
+          - prepatch
+          - preminor
+          - premajor
+          - prerelease
+      tag:
+        required: true
+        description: 'tag ("beta" or "alpha"):'
+        type: choice
+        default: "beta"
+        options:
+          - beta
+          - alpha
       custom_version:
         description: 'custom version: x.y.z (without "v")'
         required: false
 
-run-name: Publish ${{ inputs.type }} ${{ inputs.custom_version }}
+run-name: Publish ${{ inputs.type }} ${{ inputs.custom_version }} (tag ${{ inputs.tag }})
 
 jobs:
   publish:
@@ -48,11 +57,11 @@ jobs:
 
       - name: Bump by version type
         if: ${{ !github.event.inputs.custom_version }}
-        run: yarn version --${{ github.event.inputs.type }} --no-commit-hooks
+        run: yarn workspace @vkontakte/vkui version --${{ github.event.inputs.type }} --preid ${{ github.event.inputs.tag }} --no-commit-hooks
 
       - name: Bump by custom version
         if: ${{ github.event.inputs.custom_version }}
-        run: yarn version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
+        run: yarn workspace @vkontakte/vkui version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
 
       - name: Pushing changes
         uses: ad-m/github-push-action@master

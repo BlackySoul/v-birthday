@@ -6,7 +6,6 @@ jobs:
   find_actual_milestone:
     runs-on: ubuntu-latest
     outputs:
-      milestone_number: ${{ steps.milestone_info.outputs.milestone_number }}
       milestone_name: ${{ steps.milestone_info.outputs.milestone_name }}
     steps:
       - name: Find actual milestone number
@@ -26,15 +25,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           releaseTag: ${{ needs.find_actual_milestone.outputs.milestone_name }}
-          workflowId: "publish.yml"
-
-  close_milestone:
-    needs: ["find_actual_milestone", "dispatch_publish_workflow"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Close milestone, comment on issues and release notes
-        uses: BlackySoul/guthub_actions_test/.github/actions/close-milestone@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          releaseTag: ${{ needs.find_actual_milestone.outputs.milestone_name }}
-          milestoneNumber: ${{ needs.find_actual_milestone.outputs.milestone_number }}
+          workflowId: ${{ contains(needs.find_actual_milestone.outputs.milestone_name, '-') && 'publish_prerelease.yml' || 'publish.yml' }}
+          defaultBranchName: "main"
