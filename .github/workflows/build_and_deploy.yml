@@ -46,14 +46,14 @@ jobs:
       - name: Build site
         run: |
           yarn build
-          mkdir -p v1
-          cp -R build/* v1
+          mkdir -p site/v1
+          cp -R build/* site/v1
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload the folder
-          path: "v1"
+          path: "site"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
