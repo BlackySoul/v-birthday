@@ -15,7 +15,7 @@ function App() {
         <section>
           <WishCard task="Для получения награды этой карточки ничего специально делать не нужно." buttonTitle="Получить">
             <div className="warzone-img" />
-            <div className="warzone-img-overlay">Здесь в идеале должен был быть ключик от Battle Pass. <br /><br />Но CoD - помойка, Battle.net - помойка, Blizzard - помойка, PSN - помойка. <br /><br />Жизнь - боль.</div>
+            <div className="warzone-img-overlay">Здесь в идеале должен был быть ключик от Battle Pass. <br /><br />Но CoD - помойка, Battle.net - помойка, Blizzard - помойка, PSN - помойка. <br /><br />Жизнь - боль. x2</div>
           </WishCard>
         </section>
         <section>
